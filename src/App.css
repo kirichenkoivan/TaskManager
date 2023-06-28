@@ -7,41 +7,42 @@
   box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.layers{
+    height: 100vh;
+    dislpay: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.App-header {
-  background: #1A1A40;
-  height: 150px;
-  padding: 20px;
-  color: white;
-  text-align: center;
-  width: 130%;
-  margin-left: -14%;
+.layer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
 }
 
-.App-title {
-  font-size: 1.5em;
+.layers__base{
+    transform: translate3d(0, calc(var(--scrollTop) / 2, 0));
+    background-image: url('./images/layer-base.png');
 }
 
-.App-intro {
-  font-size: large;
+.layers__title{
+    background-image: url('./images/layer-middle.png');
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.layers__front{
+    background-image: url('./images/layer-front.png');
 }
 
-body {
-  background: #8758ff;
+.pena {
+  background: #DEE7E7;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 
 h1 {
@@ -51,7 +52,7 @@ h1 {
 }
 
 .TodoWrapper {
-  background: #1A1A40;
+  background: #4F646F;
   margin-top: 5rem;
   padding: 2rem;
   border-radius: 5px;
@@ -64,7 +65,7 @@ h1 {
 .todo-input {
   outline: none;
   background: none;
-  border: 1px solid #8758ff;
+  border: 1px solid #86BBD8;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -77,8 +78,8 @@ h1 {
 }
 
 .todo-btn {
-  background: #8758ff;
-  color: #fff;
+  background: #86BBD8;
+  color: #F4FAFF;
   border: none;
   padding: 0.55rem;
   cursor: pointer;
@@ -87,8 +88,8 @@ h1 {
 
 .todo-load-btn{
     width: 100%;
-    background: #8758ff;
-    color: #fff;
+    background: #86BBD8;
+    color: #F4FAFF;
     border: none;
     padding: 0.55rem;
     cursor: pointer;
@@ -99,7 +100,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #8758ff;
+  background: #86BBD8;
   color: #fff;
   padding: 0.75rem 1.5rem;
   margin-top: 1rem;

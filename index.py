@@ -24,20 +24,20 @@ def hello():
     print('bruh')
 
 @eel.expose
-def add_new_task(tasks):
+def add_new_task(tasks, id_task):
     print(tasks)
     if (tasks == ""):
         pass
     else:
         with connection.cursor() as cursor:
-            insert_query = "INSERT INTO taskmanager (task) VALUES (%s)"
-            val = (tasks)
+            insert_query = "INSERT INTO TaskManager (task, task_id) VALUES (%s, %s)"
+            val = (tasks, id_task)
             cursor.execute(insert_query, val)
             connection.commit()
 
 @eel.expose
 def load_old_tasks():
-    sql_select_Query = "SELECT task FROM taskmanager ORDER BY ID DESC LIMIT 1"
+    sql_select_Query = "SELECT task FROM TaskManager ORDER BY ID DESC LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql_select_Query)
 
@@ -49,12 +49,16 @@ def load_old_tasks():
     return a3
 
 @eel.expose
-def delete_task(tasks):
-    with connection.cursor() as cursor:
-        insert_query = "DELETE FROM taskmanager WHERE task = %s"
-        val = (tasks)
-        cursor.execute(insert_query, val)
-        connection.commit()
+def delete_task(id_tasks):
+
+    if id_tasks == '':
+        pass
+    else:
+        with connection.cursor() as cursor:
+            insert_query = "DELETE FROM TaskManager WHERE task_id = %s"
+            val = (id_tasks)
+            cursor.execute(insert_query, val)
+            connection.commit()
 
 
 
