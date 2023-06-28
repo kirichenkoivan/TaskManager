@@ -11,20 +11,22 @@ export const TodoWrapper = () => {
         const [todos, setTodos] = useState([{}])
 
         var tasks;
-        var ids;
         var complete;
         var editing;
 
         const addTodo = todo => {
-            setTodos([...todos,{id:uuid4(), task: todo, completed: false, isEditing: false}])
+            var ids = uuid4();
+            setTodos([...todos,{id:ids, task: todo, completed: false, isEditing: false}]);
             console.log(todos);
+            console.log(ids);
             tasks = todo;
-            eel.add_new_task(tasks);
+            eel.add_new_task(tasks, ids);
         }
 
         const loadTodo = todo => {
             setTodos([...todos,{id:uuid4(), task: todo, completed: false, isEditing: false}])
             console.log(todos);
+
         }
 
         const toggleComplete = id => {
@@ -33,11 +35,20 @@ export const TodoWrapper = () => {
 
         const deleteTodo = id => {
             setTodos(todos.filter(todo => todo.id !== id));
-            console.log(todos.filter(todo => todo.id !== id).task);
+            var bruh = id;
+            console.log(bruh);
+            eel.delete_task(bruh);
         }
         const editTodo = id => {
             setTodos(todos.map(todo => todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo))
         }
+        useEffect(() =>{
+    window.addEventListener("scroll", () =>{
+        let scrollY = window.scrollY;
+        document.documentElement.style.setProperty("--scrollTop", `${scrollY}`);
+        console.log(scrollY);
+    })
+  }, [])
     return(
         <div className="TodoWrapper">
 

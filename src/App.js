@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import logo from "./cats.png";
 import { useState } from 'react';
 import "./App.css";
 import { eel } from "./eel.js";
 
 import { TodoWrapper } from './components/TodoWrapper';
-
 
 
 class App extends Component {
@@ -15,17 +14,30 @@ class App extends Component {
     eel.hello();
   }
 
+
+
   render(){
     return (
       <div className="App">
+
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Ваши заметки</h1>
+          <div className="layers">
+            <div className="layer__header">
+                <div className="layers__captions">Ваш помощник</div>
+                <div className="layer__title">Заметки</div>
+            </div>
+
+            <div className="layer layers__base"></div>
+            <div className="layer layers__title"></div>
+            <div className="layer layers__front"></div>
+          </div>
+
         </header>
 
 
+        <div className="pena">
         <TodoWrapper />
-
+        </div>
 
       </div>
     );
