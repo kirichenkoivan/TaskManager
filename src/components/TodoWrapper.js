@@ -42,13 +42,7 @@ export const TodoWrapper = () => {
         const editTodo = id => {
             setTodos(todos.map(todo => todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo))
         }
-        useEffect(() =>{
-    window.addEventListener("scroll", () =>{
-        let scrollY = window.scrollY;
-        document.documentElement.style.setProperty("--scrollTop", `${scrollY}`);
-        console.log(scrollY);
-    })
-  }, [])
+
     return(
         <div className="TodoWrapper">
 

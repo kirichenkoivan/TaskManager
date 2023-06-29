@@ -5,6 +5,7 @@ import "./App.css";
 import { eel } from "./eel.js";
 
 import { TodoWrapper } from './components/TodoWrapper';
+import {ParallHeader} from './components/ParallHeader';
 
 
 class App extends Component {
@@ -19,26 +20,10 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-
-        <header className="App-header">
-          <div className="layers">
-            <div className="layer__header">
-                <div className="layers__captions">Ваш помощник</div>
-                <div className="layer__title">Заметки</div>
-            </div>
-
-            <div className="layer layers__base"></div>
-            <div className="layer layers__title"></div>
-            <div className="layer layers__front"></div>
-          </div>
-
-        </header>
-
-
+       <ParallHeader/>
         <div className="pena">
         <TodoWrapper />
         </div>
-
       </div>
     );
   }
